@@ -6,7 +6,10 @@ export default function App() {
 const [name, setName] = useState("Miguel")
 const [number, setNumber] = useState(1)
 const changeNumber = () => {
-  setNumber( number + 1)
+  // setNumber( number + 1)
+  // setNumber( number + 1)
+  setNumber((prevNumber) => prevNumber + 1)
+  setNumber((prevNumber) => prevNumber + 1)
 }
 
   return (
