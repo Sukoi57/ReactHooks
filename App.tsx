@@ -3,14 +3,26 @@ import { useState, useEffect } from 'react';
 
 export default function App() {
 
-const [name, setName] = useState("Miguel")
-const [number, setNumber] = useState(1)
-const changeNumber = () => {
-  // setNumber( number + 1)
-  // setNumber( number + 1)
-  setNumber((prevNumber) => prevNumber + 1)
-  setNumber((prevNumber) => prevNumber + 1)
-}
+  const [name, setName] = useState("Miguel")
+  const [number, setNumber] = useState(1)
+  const changeNumber = () => {
+    // setNumber( number + 1)
+    // setNumber( number + 1)
+    setNumber((prevNumber) => prevNumber + 1)
+    setNumber((prevNumber) => prevNumber + 1)
+  }
+
+  useEffect(() => {
+    console.log("Roda a cada renderisação")
+  });
+
+  useEffect(() => {
+    console.log("Só roda quando o número muda")
+  }, [number]);
+
+  useEffect(() => {
+    console.log("Só executa uma vez")
+  }, []);
 
   return (
     <View style={styles.container}>
