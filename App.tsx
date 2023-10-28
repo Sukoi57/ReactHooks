@@ -1,10 +1,16 @@
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function App() {
 
   const [name, setName] = useState("Miguel")
   const [number, setNumber] = useState(1)
+  const [letters, setLetters] = useState(0)
+
+  const numberRef = useRef(0)
+
+  console.log(numberRef)
+  
   const changeNumber = () => {
     // setNumber( number + 1)
     // setNumber( number + 1)
@@ -14,6 +20,8 @@ export default function App() {
 
   useEffect(() => {
     console.log("Roda a cada renderisação")
+    //setNumber((prevNumber) => prevNumber +1)
+    numberRef.current = Math.random()
   });
 
   useEffect(() => {
@@ -27,6 +35,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Meu nome é {name}.</Text>
+      <Text>O meu nome tem {letters} letras</Text>
       <TextInput
       onChangeText={setName}
       value={name}
@@ -34,6 +43,7 @@ export default function App() {
       />
 
       <Text>O número é {number}.</Text>
+      <Text>O número Ref é </Text>
       <Button
       onPress={changeNumber}
       title='Aumenta Número'
